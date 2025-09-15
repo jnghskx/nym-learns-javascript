@@ -72,3 +72,27 @@ do {
     num++;
 } while (num < 2);
 // these are just while loops. but why would one use do/while instead of just while?
+
+function functionName() {
+    console.log("This is a function.");
+}; // btw if you declare variables in the function it cant be used outside it
+// if you redeclare a variable inside a function the one inside will take precedent
+// outside fn = global
+// inside fn = local
+// // // // // whats said in the function, stays in the function // // // // // 
+functionName(); 
+
+// PARAMETERS <- they pass value into the function
+//creating this parameter like its an empty slot in a form
+function greetings(username) { 
+    console.log("wsg", username,"!");
+}
+greetings("ultramegacoolman"); //and you fill in the form with an ARGUMENT
+greetings(MY_NAME); //declared ts at the beginning
+
+//now for the convenient part.
+
+function rand(upperLimit = 10) { //default is 10
+    return Math.floor(Math.random()*upperLimit) 
+};
+console.log("now generating a random number...", rand(8888)); //creaming
