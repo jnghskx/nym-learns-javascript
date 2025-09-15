@@ -37,4 +37,38 @@ trying to declare it again will give you and error */
 
 age = (age+1);
 console.log("look! it's my birthday! now i'm", age,"!");
-//ims so sleepy but we must persevere what the fawk am i listening to rightnow
+//ims so sleepy but we must persevere what the fawk am i listening to rightnow  
+
+if (a < 50 && b < 50) {
+    console.log("both these numbers are smaller than 50")
+};
+// LOGICAL OPERATORS. this is and. its true if both sides are true.
+if (a < 50 || b < 50) {
+    console.log("one of these numbers are smaller than 50.")
+};
+if (!(a<50)&& b < 50) {
+    console.log("only the second number is smaller than 50")
+};
+// i covered logical operators in challenges.js
+
+for (let i = 0; i < 5; i++) {
+    console.log("using a for loop", i);
+}; 
+/* let i = 0 creates variable 'i' ,, it's zero
+it will keep looping if i less < 5
+i++ adds 1 every iteration.
+ask chat to explain it further what each bit means and like. the possibilities
+*/
+let count = 0;
+while (count < 3) {
+    console.log("Using a while loop to count:", count);
+    count++;
+}
+// while loops... makes sense....
+
+let num = 0;
+do {
+    console.log("do..while loops have to run at least once,", num);
+    num++;
+} while (num < 2);
+// these are just while loops. but why would one use do/while instead of just while?
