@@ -1,5 +1,6 @@
 //let userans = 0;
-let solution = Math.floor(Math.random()*100)+1;
+let upperLimit = 100;
+let solution = Math.floor(Math.random()*upperLimit)+1;
 let attempts = 0;
 //let playing = "y";
 console.log("temp correct answer display:", solution);
@@ -15,13 +16,48 @@ const rl = readline.createInterface({ //makes an interface called rl
     output: process.stdout //writing prompts
 });
 
+
+//evil thing happening: difficulty select DOESNT WORK AT ALL 
+
+
+function difficultySelect() {
+    rl.question("Select difficulty\n[ez] correct answer will be from 1-50\n[med] correct answer will be from 1-100\
+\n[hard] correct answer will be from 1-500.\ntype:", function(userans){
+        if (userans.toLowerCase() === "ez" || userans == 50) {
+            return upperLimit = 50; 
+        } else if (userans.toLowerCase() === "med" || userans == 100) {
+            return upperLimit = 100
+        } else if (userans.toLowerCase() === "hard" || userans == 500) {
+            return upperLimit = 500
+        }
+        else {
+            console.log("invalid input, silly...");
+            difficultySelect()
+        } 
+    })
+}
+
+function playAgain() {
+    rl.question("Would you like to play again? [y] / [n]", function(userans) {
+        if (userans.toLowerCase() === "y") {
+            solution = Math.floor(Math.random()*upperLimit)+1;
+            attempts = 0;
+            askGuess();
+        } else {
+            rl.close()
+        }
+    })
+} 
+
 function askGuess() {
+    difficultySelect();
     rl.question("whats your guess? ", function(userans) {
         attempts++;
         userans = Number(userans); //type conversion
         if (userans == solution) {
             console.log("you guessed it in", attempts, "tries");
-            rl.close()
+            userans = 0;
+            playAgain();
         } else if (userans > solution) {
             console.log("shoot lower");
             askGuess()
@@ -31,7 +67,9 @@ function askGuess() {
         }
     });
 }
+
 askGuess();
+
 
 // jjjjjjkhkjhlhhjkjkj hi ok
 
